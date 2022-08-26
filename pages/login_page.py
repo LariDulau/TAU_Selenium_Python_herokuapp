@@ -38,3 +38,14 @@ class LoginPage:
 
     def isInvalidErrorTextDisplayed(self):
         return self.browser.find_element(*self.INVALID_ERROR_TEXT).is_displayed()
+
+    def isLogInButtonDisplayed(self):
+        return self.browser.find_element(*self.LOGIN_BUTTON).is_displayed()
+
+    def isLogInSubtitleDisplayed(self):
+        return self.browser.find_element(*self.LOGIN_PAGE_SUBTITLE).is_displayed()
+
+    def isLongTextDisplayed(self):
+        return self.browser.find_element(*self.LONG_TEXT).is_displayed()
+
+
