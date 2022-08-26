@@ -1,7 +1,7 @@
 from time import sleep
 # import pytest
 
-from pages.alerts_page import AlertsPage
+from pages.javascript_alerts_page import AlertsPage
 
 
 def test_alert_accept(browser):
