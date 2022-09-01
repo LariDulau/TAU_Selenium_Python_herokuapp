@@ -1,5 +1,6 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
+from gettext import gettext
 
 class LoginPage:
     #locators
@@ -8,8 +9,8 @@ class LoginPage:
     LOGIN_BUTTON = (By.CLASS_NAME, 'radius')
     LOGIN_PAGE_SUBTITLE = (By.CSS_SELECTOR, 'h2')
     LONG_TEXT = (By.CLASS_NAME, 'subheader')
-    INVALID_ERROR_TEXT = (By.ID, 'flash-messages')
-
+    ERROR_TEXT = (By.ID, 'flash-messages')
+    IMAGE = (By.CSS_SELECTOR, '[alt="Fork me on GitHub"]')
 
 
     # URL
@@ -36,8 +37,8 @@ class LoginPage:
         self.insert_password(password)
         self.click_login()
 
-    def isInvalidErrorTextDisplayed(self):
-        return self.browser.find_element(*self.INVALID_ERROR_TEXT).is_displayed()
+    def isErrorTextDisplayed(self):
+        return self.browser.find_element(*self.ERROR_TEXT).is_displayed()
 
     def isLogInButtonDisplayed(self):
         return self.browser.find_element(*self.LOGIN_BUTTON).is_displayed()
@@ -47,5 +48,8 @@ class LoginPage:
 
     def isLongTextDisplayed(self):
         return self.browser.find_element(*self.LONG_TEXT).is_displayed()
+
+    def isImageDisplayed(self):
+        return self.browser.find_element(*self.IMAGE).is_displayed()
 
 

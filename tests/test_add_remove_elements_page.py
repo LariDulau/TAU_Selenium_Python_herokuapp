@@ -11,8 +11,11 @@ def test_check_add_element_functionality(browser):
     assert add_remove_page.isAddButtonDisplayed()
 
 
-def test_check_url():
-    pass
+def test_check_url(browser):
+    check_url = AddRemoveElementsPage(browser)
+    check_url.load_page()
+    assert check_url.URL == browser.current_url
+
 
 def test_title(browser):
     add_remove_page = AddRemoveElementsPage(browser)
@@ -20,8 +23,13 @@ def test_title(browser):
     add_remove_page.load_page()
     assert "Add/Remove Elements" == add_remove_page.getTitlePage()
 
-def test_link():
-    pass
+def test_link(browser):
+    link_check = AddRemoveElementsPage(browser)
+    link_check.load_page()
+    assert link_check.isLINKdisplayed()
+    link_check.clickLINK()
+    browser.switch_to.window(browser.window_handles[1])
+    assert 'http://elementalselenium.com/' == browser.current_url
 
 @pytest.mark.pozitive
 def test_add_and_delete_functionality(browser):

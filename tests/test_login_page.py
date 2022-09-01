@@ -22,8 +22,46 @@ def test_url(browser):
     assert url == url_current
 
 
-def testInvalidError(browser):
+def test_invalid_error(browser):
     login_page = LoginPage(browser)
     login_page.load_page()
     login_page.click_login()
-    assert login_page.isInvalidErrorTextDisplayed()
+    assert login_page.isErrorTextDisplayed()
+
+
+
+def test_login1(browser):
+    login_page = LoginPage(browser)
+    login_page.load_page()
+    login_page.login("tomsmith", "password1234")
+    login_page.click_login()
+    assert login_page.isErrorTextDisplayed()
+
+
+def test_login2(browser):
+    login_page = LoginPage(browser)
+    login_page.load_page()
+    login_page.login("smithtom", "password1234")
+    login_page.click_login()
+    assert login_page.isErrorTextDisplayed()
+
+
+def test_login3(browser):
+    login_page = LoginPage(browser)
+    login_page.load_page()
+    login_page.login("smithtom", "SuperSecretPassword!")
+    login_page.click_login()
+    assert login_page.isErrorTextDisplayed()
+
+
+def test_login4(browser):
+    login_page = LoginPage(browser)
+    login_page.load_page()
+    login_page.click_login()
+    assert login_page.isErrorTextDisplayed()
+
+
+def test_image(browser):
+    login_page = LoginPage(browser)
+    login_page.load_page()
+    assert login_page.isImageDisplayed()

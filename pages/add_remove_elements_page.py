@@ -5,6 +5,7 @@ class AddRemoveElementsPage:
     ADD_ELEMENT_BUTTON = (By.CSS_SELECTOR, '[onclick="addElement()"]')
     DELETE_BUTTON = (By.CLASS_NAME, "added-manually")
     TITLE_PAGE = (By.CSS_SELECTOR, "h3")
+    LINK = (By.LINK_TEXT, 'Elemental Selenium')
 
     # URL
     URL = "https://the-internet.herokuapp.com/add_remove_elements/"
@@ -32,3 +33,9 @@ class AddRemoveElementsPage:
 
     def getTitlePage(self):
         return self.browser.find_element(*self.TITLE_PAGE).text
+
+    def isLINKdisplayed(self):
+        return self.browser.find_element(*self.LINK).is_displayed()
+
+    def clickLINK(self):
+        self.browser.find_element(*self.LINK).click()

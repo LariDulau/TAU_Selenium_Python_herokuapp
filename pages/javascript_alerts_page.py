@@ -4,8 +4,7 @@ class AlertsPage:
     ALERT = (By.CSS_SELECTOR, '[onclick="jsAlert()"]')
     CONFIRM = (By.CSS_SELECTOR, '[onclick="jsConfirm()"]')
     PROMPT = (By.CSS_SELECTOR, '[onclick="jsPrompt()"]')
-    CONFIRM_RESULT_CANCEL = (By.CSS_SELECTOR, '[id="result"]')
-    PROMPT_RESULT = (By.CSS_SELECTOR, '[id="result"]')
+    ALERT_RESULT = (By.CSS_SELECTOR, '[id="result"]')
 
     # URL
     URL = "https://the-internet.herokuapp.com/javascript_alerts"
@@ -22,7 +21,7 @@ class AlertsPage:
     def open_confirm(self):
         self.browser.find_element(*self.CONFIRM).click()
 
-    def open_promt(self):
+    def open_prompt(self):
         self.browser.find_element(*self.PROMPT).click()
 
     def accept_alert(self):
@@ -37,8 +36,5 @@ class AlertsPage:
         alert = self.browser.switch_to.alert
         alert.send_keys(text)
 
-    def isConfirm_result_cancel_displayed(self):
-        return self.browser.find_element(*self.CONFIRM_RESULT_CANCEL).is_displayed()
-
-    def isPrompt_result_displayed(self):
-        return self.browser.find_element(*self.PROMPT_RESULT).is_displayed()
+    def isResult_displayed(self):
+        return self.browser.find_element(*self.ALERT_RESULT).is_displayed()
