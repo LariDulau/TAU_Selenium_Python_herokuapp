@@ -1,20 +1,16 @@
 from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
-from gettext import gettext
+
 
 class LoginPage:
-    #locators
-    USERNAME_INPUT = (By.ID, 'username')
-    PASSWORD_INPUT = (By.ID, "password")
-    LOGIN_BUTTON = (By.CLASS_NAME, 'radius')
-    LOGIN_PAGE_SUBTITLE = (By.CSS_SELECTOR, 'h2')
-    LONG_TEXT = (By.CLASS_NAME, 'subheader')
-    ERROR_TEXT = (By.ID, 'flash-messages')
-    IMAGE = (By.CSS_SELECTOR, '[alt="Fork me on GitHub"]')
+    EMAIL_INPUT = (By.ID, 'login[username]_id')
+    PASSWORD_INPUT = (By.ID, 'login[password]_id')
+    LOGIN_BUTTON = (By.CSS_SELECTOR, '[data-selen = "login-submit" ]')
+    REMEMBER_ME = (By.ID, 'login[remember_me]_id')
+    ERROR_TEXT = (By.CLASS_NAME, 'sc-dlfnuX XGRlC')
 
 
-    # URL
-    URL = "https://the-internet.herokuapp.com/login"
+    URL = 'https://www.reserved.com/ro/ro/customer/account/login/#login'
 
     def __init__(self, browser):
        self.browser = browser
@@ -25,31 +21,16 @@ class LoginPage:
     def insert_password(self, password):
         self.browser.find_element(*self.PASSWORD_INPUT).send_keys(password)
 
-    def insert_username(self, username):
-        self.browser.find_element(*self.USERNAME_INPUT).send_keys(username)
+    def insert_email(self, email):
+        self.browser.find_element(*self.EMAIL_INPUT).send_keys(username)
 
     def click_login(self):
-        self.browser.find_element(*self.USERNAME_INPUT).send_keys(Keys.ENTER)
-        #send_keys(Keys.CONTROL + "a")
+        self.browser.find_element(*self.LOGIN_BUTTON).click()
 
-    def login(self, username, password):
-        self.insert_username(username)
+    def login(self, email, password):
+        self.insert_email(email)
         self.insert_password(password)
         self.click_login()
 
-    def isErrorTextDisplayed(self):
+    def isErrortextDisplayed(self):
         return self.browser.find_element(*self.ERROR_TEXT).is_displayed()
-
-    def isLogInButtonDisplayed(self):
-        return self.browser.find_element(*self.LOGIN_BUTTON).is_displayed()
-
-    def isLogInSubtitleDisplayed(self):
-        return self.browser.find_element(*self.LOGIN_PAGE_SUBTITLE).is_displayed()
-
-    def isLongTextDisplayed(self):
-        return self.browser.find_element(*self.LONG_TEXT).is_displayed()
-
-    def isImageDisplayed(self):
-        return self.browser.find_element(*self.IMAGE).is_displayed()
-
-
