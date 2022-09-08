@@ -1,5 +1,7 @@
 from assertpy import assert_that
 from pages.dropdown_page import DropdownPage
+from time import sleep
+
 
 
 def test_select_option(browser):

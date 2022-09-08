@@ -2,6 +2,8 @@ from pages.login_page import LoginPage
 import pytest
 from assertpy import assert_that, soft_assertions
 from pages.secure_page import SecurePage
+from time import sleep
+
 
 
 @pytest.mark.pozitive

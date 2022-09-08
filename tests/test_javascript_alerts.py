@@ -1,5 +1,7 @@
 from pages.javascript_alerts_page import AlertsPage
 from assertpy import assert_that
+from time import sleep
+
 
 
 def test_alert_accept(browser):

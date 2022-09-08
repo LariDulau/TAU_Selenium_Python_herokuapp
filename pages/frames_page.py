@@ -1,5 +1,5 @@
-from selenium.webdriver import Keys
 from selenium.webdriver.common.by import By
+from time import sleep
 
 class FramesPage:
     NESTED_FRAMES = (By. CSS_SELECTOR, '[href="/nested_frames"]')

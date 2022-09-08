@@ -1,5 +1,7 @@
 from assertpy import assert_that
 from pages.iframe_page import IFramePage
+from time import sleep
+
 
 # ASTA NU IMI IESE
 # def test_insert_text(browser):

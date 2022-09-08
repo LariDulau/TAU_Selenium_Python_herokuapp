@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from time import sleep
+
 
 class AlertsPage:
     ALERT = (By.CSS_SELECTOR, '[onclick="jsAlert()"]')

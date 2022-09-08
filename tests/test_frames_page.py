@@ -1,6 +1,8 @@
 from assertpy import assert_that
 from pages.frames_page import FramesPage
 from pages.iframe_page import IFramePage
+from time import sleep
+
 
 
 def test_url(browser):
