@@ -4,7 +4,7 @@ class AlertsPage:
     ALERT = (By.CSS_SELECTOR, '[onclick="jsAlert()"]')
     CONFIRM = (By.CSS_SELECTOR, '[onclick="jsConfirm()"]')
     PROMPT = (By.CSS_SELECTOR, '[onclick="jsPrompt()"]')
-    ALERT_RESULT = (By.CSS_SELECTOR, '[id="result"]')
+    ALERT_RESULT = (By.ID, 'result')
 
     # URL
     URL = "https://the-internet.herokuapp.com/javascript_alerts"

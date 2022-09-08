@@ -1,4 +1,4 @@
-from time import sleep
+from assertpy import assert_that
 from pages.dropdown_page import DropdownPage
 
 
@@ -13,8 +13,7 @@ def test_url(browser):
     dropdown_page.load_page()
     url = 'https://the-internet.herokuapp.com/dropdown'
     url_current = browser.current_url
-    assert url == url_current
-    sleep(3)
+    assert_that(url == url_current)
 
 
 def test_subtitle_displayed(browser):

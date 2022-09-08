@@ -12,6 +12,7 @@ class LoginPage:
     LONG_TEXT = (By.CLASS_NAME, 'subheader')
     FLASH_TEXT = (By.ID, 'flash-messages')
     IMAGE = (By.CSS_SELECTOR, '[alt="Fork me on GitHub"]')
+    FLASH_LOGOUT_TEXT = (By.ID, 'flash')
 
 
     # URL
@@ -38,19 +39,19 @@ class LoginPage:
         self.insert_password(password)
         self.click_login()
 
-    def isErrorTextDisplayed(self):
+    def is_error_text_displayed(self):
         return self.browser.find_element(*self.FLASH_TEXT).is_displayed()
 
-    def isLogInButtonDisplayed(self):
+    def is_login_button_displayed(self):
         return self.browser.find_element(*self.LOGIN_BUTTON).is_displayed()
 
-    def isLogInSubtitleDisplayed(self):
+    def is_login_subtitle_displayed(self):
         return self.browser.find_element(*self.LOGIN_PAGE_SUBTITLE).is_displayed()
 
-    def isLongTextDisplayed(self):
+    def is_long_text_displayed(self):
         return self.browser.find_element(*self.LONG_TEXT).is_displayed()
 
-    def isImageDisplayed(self):
+    def is_image_displayed(self):
         return self.browser.find_element(*self.IMAGE).is_displayed()
 
     def get_flash_message(self):
@@ -58,5 +59,8 @@ class LoginPage:
 
     def get_current_url(self):
         return self.browser.current_url
+
+    def get_flash_logout_text(self):
+        return self.browser.find_element(*self.FLASH_LOGOUT_TEXT).text
 
 

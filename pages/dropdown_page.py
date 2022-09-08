@@ -21,3 +21,5 @@ class DropdownPage:
 
     def is_subtitle_displayed(self):
         self.browser.find_element(*self.DROPDOWN_SUBTITLE).is_displayed()
+
+

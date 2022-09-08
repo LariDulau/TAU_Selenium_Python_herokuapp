@@ -1,7 +1,4 @@
-from time import sleep
-import pytest
-
-from pages.frames_page import FramesPage
+from assertpy import assert_that
 from pages.iframe_page import IFramePage
 
 # ASTA NU IMI IESE
@@ -15,7 +12,7 @@ from pages.iframe_page import IFramePage
 def test_iframe_text_is_displayed(browser):
     iframe_page = IFramePage(browser)
     iframe_page.load_page()
-    assert iframe_page.is_iframe_text_displayed()
+    assert_that(iframe_page.is_iframe_text_displayed())
 
 
 def test_url(browser):
@@ -23,5 +20,5 @@ def test_url(browser):
     iframe_page.load_page()
     url = 'https://the-internet.herokuapp.com/iframe'
     url_current = browser.current_url
-    assert url == url_current
+    assert_that(url == url_current)
 
