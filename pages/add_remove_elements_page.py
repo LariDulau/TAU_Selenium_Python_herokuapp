@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from time import sleep
 
 
 class AddRemoveElementsPage:
@@ -32,6 +31,9 @@ class AddRemoveElementsPage:
 
     def is_add_button_displayed(self):
         return self.browser.find_element(*self.ADD_ELEMENT_BUTTON).is_displayed()
+
+    def is_delete_button_displayed(self):
+        return self.browser.find_element(*self.DELETE_BUTTON).is_displayed()
 
     def get_title_page(self):
         return self.browser.find_element(*self.TITLE_PAGE).text

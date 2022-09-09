@@ -1,11 +1,10 @@
 from selenium.webdriver.common.by import By
-from time import sleep
+
 
 class FramesPage:
     NESTED_FRAMES = (By. CSS_SELECTOR, '[href="/nested_frames"]')
     IFRAME = (By. CSS_SELECTOR, '[href="/iframe"]')
     SUBTITLE = (By. CSS_SELECTOR, 'h3')
-
 
 
     URL = 'https://the-internet.herokuapp.com/frames'

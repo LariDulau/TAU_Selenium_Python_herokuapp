@@ -1,8 +1,6 @@
 from pages.login_page import LoginPage
 from assertpy import assert_that, soft_assertions
 from pages.secure_page import SecurePage
-from time import sleep
-
 
 
 def test_check_logout_functionality(browser):

@@ -1,20 +1,12 @@
 from assertpy import assert_that
 from pages.iframe_page import IFramePage
-from time import sleep
 
 
-# ASTA NU IMI IESE
-# def test_insert_text(browser):
-#     iframe_page = IFramePage(browser)
-#     iframe_page.load_page()
-#     iframe_page.insert_text('The car')
-#     sleep(4)
-
-
-def test_iframe_text_is_displayed(browser):
+def test_iframe_page(browser):
     iframe_page = IFramePage(browser)
     iframe_page.load_page()
-    assert_that(iframe_page.is_iframe_text_displayed())
+    iframe_page.write('The car is new.')
+    assert_that(iframe_page.get_text() == 'The car is new.')
 
 
 def test_url(browser):

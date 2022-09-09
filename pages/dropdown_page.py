@@ -1,6 +1,5 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
-from time import sleep
 
 
 class DropdownPage:
@@ -16,9 +15,16 @@ class DropdownPage:
     def load_page(self):
         self.browser.get(self.URL)
 
-    def select_option(self, option):
+    def select_by_text(self, option):
         select_option = Select(self.browser.find_element(*self.SELECT_AN_OPTION))
         select_option.select_by_visible_text(option)
+
+    def select_by_value(self, value):
+        select = Select(self.browser.find_element(*self.SELECT_AN_OPTION))
+        select.select_by_value(value)
+
+    def is_value_selected(self, value):
+        return self.browser.find_element(By.CSS_SELECTOR, f'[value="{value}"][selected="selected"]').is_displayed()
 
     def is_subtitle_displayed(self):
         self.browser.find_element(*self.DROPDOWN_SUBTITLE).is_displayed()

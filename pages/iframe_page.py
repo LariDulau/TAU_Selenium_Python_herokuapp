@@ -1,14 +1,15 @@
-from time import sleep
 from selenium.webdriver.common.by import By
 
 
 class IFramePage:
-    IFRAME_TEXT = (By.CSS_SELECTOR, 'h3')
-    INPUT_TEXT = (By. ID, 'mce_0_ifr')
-    FILE = (By. XPATH, "//span[text()='File']")
-    NEW_DOCUMENT = (By. XPATH, "//span[text()='New Document']")
+    IFRAME_TITLE = (By.CSS_SELECTOR, 'h3')
+    IFRAME = (By.CLASS_NAME, "tox-edit-area__iframe")
+    EDIT_SECTION = (By.CLASS_NAME, "mce-content-body")
+    TEXT_FROM_EDIT = (By.CSS_SELECTOR, ".mce-content-body > p")
+    BOLD = (By.CSS_SELECTOR, "[title = 'Bold']")
 
     URL = 'https://the-internet.herokuapp.com/iframe'
+
 
     def __init__(self, browser):
         self.browser = browser
@@ -16,19 +17,20 @@ class IFramePage:
     def load_page(self):
         self.browser.get(self.URL)
 
-    def is_iframe_text_displayed(self):
-        return self.browser.find_element(*self.IFRAME_TEXT).is_displayed()
+    def get_title_page(self):
+        return self.browser.find_element(*self.IFRAME_TITLE).text
 
-    def click_file(self):
-       self.browser.find_element(*self.FILE).click()
+    def write(self, text):
+        iframe = self.browser.find_element(*self.IFRAME)
+        self.browser.switch_to.frame(iframe)
+        self.browser.find_element(*self.EDIT_SECTION).clear()
+        self.browser.find_element(*self.EDIT_SECTION).send_keys(text)
 
-    def click_new_document(self):
-       self.browser.find_element(*self.NEW_DOCUMENT).click()
-
-    def insert_text(self, text):
-        insert_text = self.browser.switch_to.frame
-        insert_text.send_keys(text)
-
+    def get_text(self):
+        iframe = self.browser.find_element(*self.IFRAME)
+        self.browser.switch_to.frame(iframe)
+        self.browser.find_element(*self.EDIT_SECTION).clear()
+        return self.browser.find_element(*self.TEXT_FROM_EDIT).text
 
 
 
