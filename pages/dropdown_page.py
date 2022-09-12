@@ -26,7 +26,7 @@ class DropdownPage:
     def is_value_selected(self, value):
         return self.browser.find_element(By.CSS_SELECTOR, f'[value="{value}"][selected="selected"]').is_displayed()
 
-    def is_subtitle_displayed(self):
-        self.browser.find_element(*self.DROPDOWN_SUBTITLE).is_displayed()
+    def get_subtitle(self):
+        return self.browser.find_element(*self.DROPDOWN_SUBTITLE).text
 
 

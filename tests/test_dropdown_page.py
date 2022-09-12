@@ -1,4 +1,4 @@
-from assertpy import assert_that
+from assertpy import assert_that, soft_assertions
 from pages.dropdown_page import DropdownPage
 
 
@@ -11,16 +11,10 @@ def test_select_option(browser):
     assert_that(dropdown_page.is_value_selected("2")).is_true()
 
 
-def test_url(browser):
+def test_dropdown_page(browser):
     dropdown_page = DropdownPage(browser)
     dropdown_page.load_page()
-    url = 'https://the-internet.herokuapp.com/dropdown'
-    url_current = browser.current_url
-    assert_that(url == url_current)
-
-
-def test_subtitle_displayed(browser):
-    dropdown_page = DropdownPage(browser)
-    dropdown_page.load_page()
-    dropdown_page.is_subtitle_displayed()
+    with soft_assertions():
+        assert_that(browser.current_url).is_equal_to(dropdown_page.URL)
+        assert_that(dropdown_page.get_subtitle()).is_equal_to('Dropdown List')
 
