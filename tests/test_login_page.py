@@ -44,4 +44,4 @@ def test_login_page(browser):
     with soft_assertions():
         assert_that(login_page.get_current_url()).ends_with("/login")
         assert_that(login_page.is_image_displayed())
-        assert_that(login_page.URL == browser.current_url)
+        assert_that(login_page.URL).is_equal_to(browser.current_url)
