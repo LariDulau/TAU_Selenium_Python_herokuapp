@@ -6,6 +6,8 @@ class SecurePage:
     LOGOUT_BUTTON = (By.CSS_SELECTOR, '[class="button secondary radius"]')
     FLASH_TEXT = (By. ID, 'flash')
 
+    WELCOME_MESSAGE = 'Welcome to the Secure Area. When you are done click logout below.'
+
 
     # URL
     URL = "https://the-internet.herokuapp.com/secure"

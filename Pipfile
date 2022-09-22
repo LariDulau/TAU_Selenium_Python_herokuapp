@@ -9,6 +9,7 @@ webdriver-manager = "*"
 pytest = "*"
 pytest-xdist = "*"
 pytest-html = "*"
+assertpy = "*"
 
 [dev-packages]
 

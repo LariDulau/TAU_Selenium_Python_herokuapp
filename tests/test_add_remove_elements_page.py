@@ -24,7 +24,6 @@ def test_check_add_remove_elements_page(browser):
     add_remove_page.load_page()
     with soft_assertions():
         assert_that(add_remove_page.get_title_page()).is_equal_to("Add/Remove Elements")
-        assert_that(add_remove_page.is_add_button_displayed())
         assert_that(add_remove_page.URL == browser.current_url)
 
 
@@ -35,6 +34,8 @@ def test_add_page(browser):
     assert_that(add_remove_page.get_number_of_delete_button()).is_equal_to(1)
     add_remove_page.click_delete_button()
     assert_that(add_remove_page.get_number_of_delete_button()).is_equal_to(0)
+
+
 
 
 #create suite smoke

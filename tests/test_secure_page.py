@@ -21,6 +21,6 @@ def test_secure_page(browser):
     secure_page = SecurePage(browser)
     with soft_assertions():
         assert_that(browser.current_url).is_equal_to(secure_page.URL)
-        assert_that(secure_page.get_welcome_message()).is_equal_to('Welcome to the Secure Area. When you are done click logout below.')
+        assert_that(secure_page.get_welcome_message()).is_equal_to(secure_page.WELCOME_MESSAGE)
         assert_that(secure_page.is_flash_text_displayed())
 

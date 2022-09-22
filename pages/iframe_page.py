@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-
+from time import sleep
 
 class IFramePage:
     IFRAME_TITLE = (By.CSS_SELECTOR, 'h3')
@@ -7,6 +7,7 @@ class IFramePage:
     EDIT_SECTION = (By.CLASS_NAME, "mce-content-body")
     TEXT_FROM_EDIT = (By.CSS_SELECTOR, ".mce-content-body > p")
     BOLD = (By.CSS_SELECTOR, "[title = 'Bold']")
+
 
     URL = 'https://the-internet.herokuapp.com/iframe'
 
@@ -24,12 +25,15 @@ class IFramePage:
         iframe = self.browser.find_element(*self.IFRAME)
         self.browser.switch_to.frame(iframe)
         self.browser.find_element(*self.EDIT_SECTION).clear()
+        sleep(5)
         self.browser.find_element(*self.EDIT_SECTION).send_keys(text)
+        sleep(5)
 
     def get_text(self):
         iframe = self.browser.find_element(*self.IFRAME)
         self.browser.switch_to.frame(iframe)
         self.browser.find_element(*self.EDIT_SECTION).clear()
+        sleep(5)
         return self.browser.find_element(*self.TEXT_FROM_EDIT).text
 
 
